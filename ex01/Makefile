@@ -1,22 +1,23 @@
-COMP_FLAGS = -Wall -Wextra -Werror
-NAME = megaphone
-SRCS = megaphone.cpp
+# COMP_FLAGS = -Wall -Wextra -Werror
+NAME = phonebook
+SRCS = Phonebook.class.cpp main.cpp 
 
 OBJS = $(SRCS:%.cpp=%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	clang++ $(COMP_FLAGS) -o $@ $^
+	clang++ -o $@ $^
+	# clang++ $(COMP_FLAGS) -o $@ $^
 
 %.o : %.cpp
 	clang++ -c $< -o $@
 
 clean:
-	rm -f megaphone.o
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f megaphone
+	rm -f $(NAME)
 
 re:	fclean all
 

@@ -14,6 +14,7 @@ public:
 	Sample(void);
 	~Sample(void);
 	void new_func();
+	void old_func(int i);
 
 };
 
