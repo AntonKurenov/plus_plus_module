@@ -1,4 +1,5 @@
 #include "Phonebook.class.hpp"
+#include "Contact.class.hpp"
 
 int check_command(std::string command)
 {
@@ -26,18 +27,18 @@ int main()
 		std::cout << "Print command: ";
 		std::getline(std::cin, command, '\n');
 		command_id = check_command(command);
-		if (command_id == 2 && index < book.getSize())
+		if (command_id == 2 && index <= MAX)
 		{
-			book.addContact(index);
 			index++;
+			book.addContact(index);
+		}
+		else if (command_id == 2 && index > MAX)
+		{
+			std::cout << "Sorry, memory is full, now only SEARCH command works";
 		}
 		if (command_id == 3)
 		{
 			book.doSearch();
-		}
-		if (index == book.getSize()) 
-		{
-			std::cout << "Sorry, memory is full, now only SEARCH command works";
 		}
 	}
 	return 0;

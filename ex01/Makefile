@@ -1,6 +1,6 @@
 # COMP_FLAGS = -Wall -Wextra -Werror
 NAME = phonebook
-SRCS = Phonebook.class.cpp main.cpp 
+SRCS = Phonebook.class.cpp main.cpp Contact.class.cpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 
