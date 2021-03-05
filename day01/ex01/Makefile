@@ -1,4 +1,4 @@
-# COMP_FLAGS = -Wall -Wextra -Werror
+COMP_FLAGS = -Wall -Wextra -Werror
 NAME = phonebook
 SRCS = Phonebook.class.cpp main.cpp Contact.class.cpp
 
@@ -7,8 +7,7 @@ OBJS = $(SRCS:%.cpp=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	clang++ -o $@ $^
-	# clang++ $(COMP_FLAGS) -o $@ $^
+	clang++ $(COMP_FLAGS) -o $@ $^
 
 %.o : %.cpp
 	clang++ -c $< -o $@
