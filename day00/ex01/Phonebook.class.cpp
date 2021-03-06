@@ -1,8 +1,5 @@
 #include "Phonebook.class.hpp"
 #include "Contact.class.hpp"
-#include <iostream>
-#include <string>
-#include <iomanip>
 
 void Phonebook::fillColumn(std::string t_str) const
 {

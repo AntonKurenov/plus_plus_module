@@ -3,11 +3,13 @@
 
 Sample::Sample(void) {
 	std::cout << "constructor called" << std::endl;
+	Sample::m_counter += 1;
 	return ;
 }
 
 Sample::~Sample(void) {
 	std::cout << "Destructor called" << std::endl;
+	Sample::m_counter -= 1;
 	return ;
 }
 
@@ -27,3 +29,10 @@ void Sample::old_func(int i) {
 	else
 		std::cout << "Ok, very well!" << std::endl;
 }
+
+int Sample::getCounter(void)
+{
+	return Sample::m_counter;
+}
+
+int Sample::m_counter = 0;

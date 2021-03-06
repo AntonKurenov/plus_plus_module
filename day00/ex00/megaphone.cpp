@@ -1,19 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: elovegoo <elovegoo@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/09 15:34:33 by elovegoo          #+#    #+#             */
-/*   Updated: 2021/02/09 17:13:39 by elovegoo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <iostream>
-
-// using namespace std;
-// using namespace ft;
 
 void converter(char *str)
 {
@@ -36,6 +21,10 @@ int main(int argc, char **argv)
 		argv++;
 		if (i < argc - 1)
 			std::cout << " ";
+	}
+	if (argc == 1)
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	}
 	std::cout << std::endl;
 	return 0;

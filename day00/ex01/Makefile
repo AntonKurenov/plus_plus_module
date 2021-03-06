@@ -1,19 +1,23 @@
 COMP_FLAGS = -Wall -Wextra -Werror
 NAME = phonebook
 SRCS = Phonebook.class.cpp main.cpp Contact.class.cpp
+OBJS_DIR = objs/
 
-OBJS = $(SRCS:%.cpp=%.o)
+OBJS = $(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))
 
-all: $(NAME)
+all: $(OBJS_DIR) $(NAME)
+
+$(OBJS_DIR):
+	@mkdir -p $(OBJS_DIR)
 
 $(NAME): $(OBJS)
 	clang++ $(COMP_FLAGS) -o $@ $^
 
-%.o : %.cpp
+$(OBJS): $(OBJS_DIR)%.o: %.cpp
 	clang++ -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJS_DIR)
 
 fclean: clean
 	rm -f $(NAME)

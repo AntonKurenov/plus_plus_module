@@ -6,8 +6,8 @@
 class Sample {
 
 private:
-
 	void func(void);
+	static int m_counter;
 
 public:
 
@@ -15,6 +15,7 @@ public:
 	~Sample(void);
 	void new_func();
 	void old_func(int i);
+	static int getCounter(void);
 
 };
 

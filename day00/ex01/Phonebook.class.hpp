@@ -1,5 +1,8 @@
 #ifndef PHONEBOOK_CLASS_HPP
 # define PHONEBOOK_CLASS_HPP
+#include <iostream>
+#include <string>
+#include <iomanip>
 
 #define MAX 8
 
@@ -14,7 +17,6 @@ private:
 	int			m_param;
 
 public:
-	void start();
 	void addContact(int t_index);
 	void doSearch(int t_index) const;
 	void printContact(int t_index) const;
