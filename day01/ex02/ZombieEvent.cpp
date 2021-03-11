@@ -3,10 +3,6 @@
 
 std::string names[5] = {"Anton", "Artemon", "Animen", "Anemion", "Auemen"};
 
-ZombieEvent::~ZombieEvent()
-{
-}
-
 ZombieEvent::ZombieEvent() : m_type("standart")
 {
 	m_names[0] = names[0];
@@ -15,6 +11,11 @@ ZombieEvent::ZombieEvent() : m_type("standart")
 	m_names[3] = names[3];
 	m_names[4] = names[4];
 }
+
+ZombieEvent::~ZombieEvent()
+{
+}
+
 
 void ZombieEvent::randomChump(void)
 {

@@ -2,6 +2,7 @@
 
 Zombie::~Zombie()
 {
+	std::cout << "Zombie " << m_name << " dies" << std::endl;
 }
 
 void Zombie::announce(void) const

@@ -2,7 +2,6 @@
 # define ZOMBIE_EVENT_HPP
 # include "Zombie.hpp"
 
-
 class ZombieEvent
 {
 private:
@@ -15,7 +14,6 @@ public:
 	void setZombieType(const std::string&);
 	Zombie* newZombie(const std::string&);
 	void randomChump(void);
-	
 };	
 
 #endif // ZOMBIE_EVENT_HPP
