@@ -1,6 +1,6 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon()
+Weapon::Weapon(std::string t_type) : m_type(t_type)
 {
 }
 
