@@ -12,7 +12,7 @@ public:
 	ZombieEvent();
 	~ZombieEvent();
 	void setZombieType(const std::string&);
-	Zombie* newZombie(const std::string&);
+	Zombie *newZombie(const std::string&);
 	void randomChump(void);
 };	
 

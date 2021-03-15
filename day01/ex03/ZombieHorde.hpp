@@ -15,7 +15,4 @@ public:
 	void announceEach() const;
 };
 
-
-
-
 #endif // ZOMBIEHORDE_HPP

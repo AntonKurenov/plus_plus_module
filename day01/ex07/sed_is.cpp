@@ -49,5 +49,6 @@ int main(int argc, char **argv)
 	}
 
 	replace(what, replacement, ifs, ofs);
+	ofs.close();
 	return (0);
 }

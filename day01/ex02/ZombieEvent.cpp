@@ -28,7 +28,7 @@ void ZombieEvent::setZombieType(const std::string& t_type)
 	m_type = t_type;
 }
 
-Zombie* ZombieEvent::newZombie(const std::string& t_name)
+Zombie *ZombieEvent::newZombie(const std::string& t_name)
 {
 	Zombie* zomb = new Zombie(t_name, m_type);
 	return (zomb);

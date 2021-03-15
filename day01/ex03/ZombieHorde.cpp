@@ -9,7 +9,7 @@ ZombieHorde::ZombieHorde(int n) : m_max(n)
 ZombieHorde::~ZombieHorde()
 {
 	delete [] m_horde;
-	std::cout << "A horde has been destroyed" << std::endl;
+	std::cout << "The horde has been destroyed" << std::endl;
 }
 
 void ZombieHorde::announceEach() const

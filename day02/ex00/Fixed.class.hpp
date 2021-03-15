@@ -1,0 +1,1 @@
+#ifndef FIXED_CLASS_HPP

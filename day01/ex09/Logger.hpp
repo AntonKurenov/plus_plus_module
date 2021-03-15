@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <fstream>
 
 class Logger
 {
@@ -12,6 +13,8 @@ private:
 	void logToConsole(std::string const & t_input);
 	void logToFile(std::string const & t_input);
 	std::string makeLogEntry(std::string const & t_input);
+	int m_is_open;
+	std::ofstream m_ofs;
 
 public:
 	Logger(std::string const & t_name);
