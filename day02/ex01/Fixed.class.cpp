@@ -6,14 +6,31 @@ void Fixed::operator=(const Fixed& t_inst)
 	m_value = t_inst.getRawBits();
 }
 
-Fixed::Fixed() : m_value(0)
+Fixed::Fixed(const int t_input)
 {
-	std::cout << "Default constructor called" << std::endl;
+	m_value = t_input << m_bits;
+	std::cout << "Integer constructor called" << std::endl;
+}
+
+Fixed::Fixed(const float t_input)
+{
+	m_value = (int)roundf(t_input * (1 << m_bits));
+	std::cout << "Integer constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& t_inst) : m_value(t_inst.getRawBits())
 {
 	std::cout << "Copy constructor called" << std::endl;
+}
+
+float Fixed::toFloat(void) const
+{
+	return ((float)m_value / (1 << m_bits));
+}
+
+int Fixed::toInt(void) const
+{
+	return (m_value >> m_bits);
 }
 
 Fixed::~Fixed()

@@ -24,6 +24,50 @@ Point::~Point()
 {
 }
 
+class Demo
+{
+private:
+	int *ptr;
+
+public:
+	Demo(int num)
+	{
+		ptr = new int(num);
+	};
+	~Demo()
+	{
+		delete(ptr);
+	};
+	void setNum(int num)
+	{
+		*ptr = num;
+	}
+	int getNum() const
+	{
+		return (*ptr);
+	}
+	Demo(Demo const & d)
+	{
+		ptr = new int;
+		*ptr = *(d.ptr);
+		std::cout << "copy constr" << std::endl;
+	}
+};
+
+void passByVal(Demo d)
+{
+}
+
+void passByRef(Demo const & d)
+{
+}
+
+std::ostream& operator<<(std::ostream& output, Point p)
+{
+	output << "X is : " << p.getX();
+	return (output);
+}
+
 int operator+(Point a, Point b)
 {
 	int sum;
@@ -32,19 +76,20 @@ int operator+(Point a, Point b)
 	return (sum);
 }
 
-
 int main()
 {
-	// Sample samp;
-	// char c = 'a';
-	// float fl = 9.999;
-
-	// samp.test(c);
-	// samp.test(789);
-	// samp.test(fl);
-	// samp.test();
-	Point p1(10, 20);
-	Point p2(30, 40);
-	std::cout << p1 + p2 << std::endl;
+	Demo first(6);
+	Demo sec = first;
+	Demo thr = sec;
+	// Point p1(10, 20);
+	// Point p2(30, 40);
+	// std::cout << p1 + p2 << std::endl;
+	// std::cout << p1 << std::endl;
+	std::cout << first.getNum() << std::endl;
+	std::cout << sec.getNum() << std::endl;
+	first.setNum(100);
+	std::cout << first.getNum() << std::endl;
+	std::cout << sec.getNum() << std::endl;
+	passByVal(first);
 	return (0);
 }
