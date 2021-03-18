@@ -11,6 +11,7 @@ private:
 	static const int m_bits = 8;
 
 public:
+	Fixed();
 	Fixed(const int t_input);
 	Fixed(const float t_input);
 	Fixed(const Fixed&);
@@ -21,5 +22,7 @@ public:
 	void setRawBits(int const raw);
 	void operator=(const Fixed& t_inst);
 };
+
+std::ostream& operator << (std::ostream &output, const Fixed &t_fix);
 
 #endif // FIXED_CLASS_HPP
