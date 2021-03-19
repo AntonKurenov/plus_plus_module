@@ -1,4 +1,5 @@
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
@@ -19,14 +20,16 @@ int main(void)
 	}
 	std::cout << "========================================================================" << std::endl;
 	{
-		FragTrap archer("ARCHER");
-		archer.rangedAttack("Skag");
-		archer.meleeAttack("Drifter");
-		archer.takeDamage(50);
-		archer.takeDamage(60);
-		archer.takeDamage(60);
-		archer.beRepaired(10);
-		archer.vaulthunter_dot_exe("Drifter");
+		ScavTrap scav("Droid");
+		scav.challengeNewcomer();
+		scav.rangedAttack("Skag");
+		scav.meleeAttack("Drifter");
+		scav.takeDamage(50);
+		scav.takeDamage(60);
+		scav.takeDamage(60);
+		scav.beRepaired(10);
+		scav.challengeNewcomer();
+		scav.challengeNewcomer();
 	}
 	return (0);
 }
