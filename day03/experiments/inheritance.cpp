@@ -7,11 +7,11 @@ private:
 
 public:
 	int rating;
-	User() : m_age(0) {};
+	User() : m_age() {};
 	User(const int & t_age) : m_age(t_age)
 	{
 	};
-	// ~User();
+	~User() {std::cout << "user died" << std::endl;};
 	int getAge() const { return (m_age);};
 };
 
@@ -24,13 +24,14 @@ public:
 	Student(const int & t_gr) : m_grade(t_gr)
 	{
 	};
-	// ~Student();
+	~Student() {std::cout << "student died" << std::endl;};
 	int getGrade() const { return (m_grade);};
 };
 
 int main()
 {
 	// User one;
+	User one(90);
 	Student stud(5);
 
 	std::cout << stud.getGrade() << std::endl;

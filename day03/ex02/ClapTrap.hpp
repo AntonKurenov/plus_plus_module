@@ -1,10 +1,10 @@
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <iostream>
 # include <ctime>
 
-class ScavTrap
+class ClapTrap
 {
 private:
 	std::string name;
@@ -18,15 +18,15 @@ private:
 	unsigned int energy_live;
 
 public:
-	ScavTrap(std::string const & t_name);
-	ScavTrap(const ScavTrap&);
-	~ScavTrap();
-	void operator=(const ScavTrap&);
+	ClapTrap();
+	ClapTrap(const ClapTrap&);
+	~ClapTrap();
+	void operator=(const ClapTrap&);
 	void rangedAttack(std::string const & target);
 	void meleeAttack(std::string const & target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-	void challengeNewcomer();
+	void vaulthunter_dot_exe(std::string const & target);
 };
 
-#endif // SCAVTRAP_HPP
+#endif // CLAPTRAP_HPP

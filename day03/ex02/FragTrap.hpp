@@ -8,12 +8,12 @@ class FragTrap
 {
 private:
 	std::string name;
-	static const unsigned int max_hit_p = 100;
-	static const unsigned int max_energy = 100;
-	static const unsigned int level = 1;
-	static const unsigned int melee = 30;
-	static const unsigned int ranged = 20;
-	static const unsigned int armor = 5;
+	unsigned int max_hit_p;
+	unsigned int max_energy;
+	unsigned int level;
+	unsigned int melee;
+	unsigned int ranged;
+	unsigned int armor;
 	unsigned int hit_points;
 	unsigned int energy_live;
 

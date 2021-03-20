@@ -1,27 +1,16 @@
 #include "FragTrap.hpp"
 
-std::string melee_at[3] = {"Heyyah!", "Meet professor punch!", "Take that!"};
-std::string ranged_at[3] = {"I'm on a roll!", "Unts unts unts unts!",\
-			"Crack shot!"};
-std::string take_dam[4] = {"Woah! Oh! Jeez!", "Ow hohoho, that hurts! Yipes!",\
-	"Why do I even feel pain?!", "Why did they build me out of galvanized flesh?!"};
-
- std::string born_mes[5] = {"Let's get this party started!", "Recompiling my combat code!",\
-		"This time it'll be awesome, I promise!", "Look out everybody! Things are about to get awesome!",
-		"I'm a robot ninja..."};
-
-std::string vault_mes[6] = {"It's about to get magical!", "You can't just program this level of excitement!",\
-	"Push this button, flip this dongle, voila! Help me!", "Square the I, carry the 1... YES!"\
-	"I have an IDEA!", "Loading combat packages!", "Defragmenting!"};
-
-std::string second_wind[5] = {"Hahaha... I ascend!", "Ha ha ha! I LIVE! Hahaha!",\
-		"Wow, that actually worked?", "I'm back! Woo!", "Here we go again!"};
-
-std::string dead_mes[6] = {"I'm too pretty to die!", "Good thing I don't have a soul!",\
-	"Aww! Come on!", "Robot down!", "No, nononono NO!", "Crap!"};
-
 FragTrap::FragTrap(std::string const & t_name) : name(t_name)
 {
+	max_hit_p = 100;
+	max_energy = 100;
+	level = 1;
+	melee = 30;
+	ranged = 20;
+	armor = 5;
+	std::string born_mes[5] = {"Let's get this party started!", "Recompiling my combat code!",\
+			"This time it'll be awesome, I promise!", "Look out everybody! Things are about to get awesome!",
+			"I'm a robot ninja..."};
 	hit_points = max_hit_p;
 	energy_live = max_energy;
 	std::cout << "<" + name + "> : " + born_mes[rand() % 5] << std::endl;
@@ -29,7 +18,15 @@ FragTrap::FragTrap(std::string const & t_name) : name(t_name)
 
 FragTrap::FragTrap(const FragTrap& t_old) : hit_points(t_old.hit_points),\
 				energy_live(t_old.energy_live)
-{
+{	
+	name = t_old.name;
+	max_hit_p = t_old.max_hit_p;
+	max_energy = t_old.max_energy;
+	level = t_old.level;
+	melee = t_old.melee;
+	ranged = t_old.ranged;
+	armor = t_old.armor;
+	std::cout << "Copy has happened!!" << std::endl;
 }
 
 FragTrap::~FragTrap()
@@ -37,15 +34,26 @@ FragTrap::~FragTrap()
 	std::cout << "\n<" + name + ">: I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
 }
 
-void FragTrap::operator=(const FragTrap& t_inst)
+void FragTrap::operator=(const FragTrap& t_old)
 {
-	hit_points = t_inst.hit_points;
-	energy_live = t_inst.energy_live;
-	name = t_inst.name;
+	hit_points = t_old.hit_points;
+	energy_live = t_old.energy_live;
+	hit_points = t_old.hit_points;
+	energy_live = t_old.energy_live;
+	name = t_old.name;
+	max_hit_p = t_old.max_hit_p;
+	max_energy = t_old.max_energy;
+	level = t_old.level;
+	melee = t_old.melee;
+	ranged = t_old.ranged;
+	armor = t_old.armor;
+	std::cout << "Hell Yeah! That is a assignment!" << std::endl;
 }
 
 void FragTrap::rangedAttack(std::string const & target)
 {
+	std::string ranged_at[3] = {"I'm on a roll!", "Unts unts unts unts!",\
+				"Crack shot!"};
 	if (energy_live < 20)
 	{
 		std::cout << "\nDangit, I'm out!" << std::endl;
@@ -63,6 +71,7 @@ void FragTrap::rangedAttack(std::string const & target)
 
 void FragTrap::meleeAttack(std::string const & target)
 {
+	std::string melee_at[3] = {"Heyyah!", "Meet professor punch!", "Take that!"};
 	if (energy_live < 30)
 	{
 		std::cout << "\nDangit, I'm out!" << std::endl;
@@ -79,6 +88,9 @@ void FragTrap::meleeAttack(std::string const & target)
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
+	std::string vault_mes[6] = {"It's about to get magical!", "You can't just program this level of excitement!",\
+		"Push this button, flip this dongle, voila! Help me!", "Square the I, carry the 1... YES!"\
+		"I have an IDEA!", "Loading combat packages!", "Defragmenting!"};
 	if (energy_live < 25)
 	{
 		std::cout << "\nDangit, I'm out!" << std::endl;
@@ -95,6 +107,10 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target)
 
 void FragTrap::takeDamage(unsigned int amount)
 {
+	std::string dead_mes[6] = {"I'm too pretty to die!", "Good thing I don't have a soul!",\
+		"Aww! Come on!", "Robot down!", "No, nononono NO!", "Crap!"};
+	std::string take_dam[4] = {"Woah! Oh! Jeez!", "Ow hohoho, that hurts! Yipes!",\
+		"Why do I even feel pain?!", "Why did they build me out of galvanized flesh?!"};
 	if (hit_points <= 0)
 	{
 		std::cout << "\nHey, I'm FR4G-TP whith a name <" + name + "> and I have already died. Stop bother me!" << std::endl;
@@ -119,6 +135,8 @@ void FragTrap::takeDamage(unsigned int amount)
 
 void FragTrap::beRepaired(unsigned int amount)
 {
+	std::string second_wind[5] = {"Hahaha... I ascend!", "Ha ha ha! I LIVE! Hahaha!",\
+			"Wow, that actually worked?", "I'm back! Woo!", "Here we go again!"};
 	std::cout << "\n+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +" << std::endl;
 	if (amount > (max_hit_p - hit_points))
 	{
@@ -129,6 +147,8 @@ void FragTrap::beRepaired(unsigned int amount)
 	{
 		std::cout << second_wind[rand() % 5] << std::endl;
 	}
+	else
+		std::cout << "Sweet life juice!" << std::endl;
 	std::cout << "FR4G-TP <" + name + "> has been repaired by <" << amount << "> of hit points" << std::endl;
 	std::cout << "+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +" << std::endl;
 }
