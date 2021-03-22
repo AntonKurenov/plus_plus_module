@@ -37,7 +37,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 	if (hit_points + amount > max_hit_p)
 	{
 		hit_points = max_hit_p;
-		std::cout << "ClapTrap <" + name + "> Fully repaired";
+		std::cout << "ClapTrap <" + name + "> Fully repaired" << std::endl;
+		std::cout << "+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +" << std::endl;
 		return ;
 	}
 	hit_points += amount;
@@ -48,7 +49,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	std::cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << std::endl;
-	amount = amount - (int)(amount - (amount * armor / 10));
+	if (armor != 0)
+		amount = amount - (int)(amount - (amount * armor / 10));
 	if (hit_points == 0)
 	{
 		std::cout << "ClapTrap <" + name + "> : Don't hit the lying one!!" << std::endl;
@@ -64,4 +66,9 @@ void ClapTrap::takeDamage(unsigned int amount)
 	hit_points -= amount;
 	std::cout << "ClapTrap <" + name + "> takes <" << amount << "> of damage" << std::endl;
 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << std::endl;
+}
+
+std::string ClapTrap::getName()
+{
+	return (name);
 }

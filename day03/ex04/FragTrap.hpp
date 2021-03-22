@@ -5,11 +5,12 @@
 #include <iostream>
 # include <ctime>
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 public:
 	FragTrap(std::string const & t_name);
 	FragTrap(const FragTrap&);
+	FragTrap();
 	~FragTrap();
 	void rangedAttack(std::string const & target);
 	void meleeAttack(std::string const & target);

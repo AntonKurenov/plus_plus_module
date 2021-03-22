@@ -5,6 +5,9 @@ class User
 private:
 	int m_age;
 
+protected:
+	std::string name;
+
 public:
 	int rating;
 	User() : m_age() {};
@@ -12,6 +15,7 @@ public:
 	{
 	};
 	~User() {std::cout << "user died" << std::endl;};
+	void setName(std::string const &);
 	int getAge() const { return (m_age);};
 };
 

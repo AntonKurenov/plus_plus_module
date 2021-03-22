@@ -52,14 +52,14 @@ void ScavTrap::rangedAttack(std::string const & target)
 	if (energy_live < 20)
 	{
 		std::cout << "\nCrap, no more shots left!" << std::endl;
-		std::cout << "FR4G-TP <" + name + "> doesn't have enough energy for this action(" << std::endl;
+		std::cout << "ScavTrap <" + name + "> doesn't have enough energy for this action(" << std::endl;
 		return ;
 	}
 	std::string rang_at[2] = {"I expect you to die!", "I'm a tornado of death and bullets!"};
 	energy_live -= 20;
 	std::cout << "\n-> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> ->" << std::endl; 
 	std::cout << rang_at[rand() % 2] << std::endl;
-	std::cout << "FR4G-TP <" + name + "> attacks <" + target + "> at range, " +\
+	std::cout << "ScavTrap <" + name + "> attacks <" + target + "> at range, " +\
 		"causing <" << ranged << "> points of damage!" << std::endl;
 	std::cout << "-> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> -> ->" << std::endl; 
 }
@@ -70,13 +70,13 @@ void ScavTrap::meleeAttack(std::string const & target)
 	if (energy_live < 30)
 	{
 		std::cout << "\nDangit, I'm out!" << std::endl;
-		std::cout << "FR4G-TP <" + name + "> doesn't have enough energy for this action(" << std::endl;
+		std::cout << "ScavTrap <" + name + "> doesn't have enough energy for this action(" << std::endl;
 		return ;
 	}
 	energy_live -= 30;
 	std::cout << "\n-* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* " << std::endl; 
 	std::cout << mel_at[rand() % 2] << std::endl;
-	std::cout << "FR4G-TP <" + name + "> attacks <" + target + "> at close distance, " +\
+	std::cout << "ScavTrap <" + name + "> attacks <" + target + "> at close distance, " +\
 		"causing <" << melee << "> points of damage!" << std::endl;
 	std::cout << "-* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* -* " << std::endl; 
 }
@@ -87,12 +87,12 @@ void ScavTrap::challengeNewcomer()
 	if (energy_live < 25)
 	{
 		std::cout << "\nDangit, I'm out!" << std::endl;
-		std::cout << "FR4G-TP <" + name + "> doesn't have enough energy for this action(" << std::endl;
+		std::cout << "ScavTrap <" + name + "> doesn't have enough energy for this action(" << std::endl;
 		return ;
 	}
 	energy_live -= 25;
 	std::cout << "\n*=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* " << std::endl;
-	std::cout << "FR5G-TP <" + name + "> trying to persuade newcomer to " + challenges[rand() % 3] << std::endl;
+	std::cout << "ScavTrap <" + name + "> trying to persuade newcomer to " + challenges[rand() % 3] << std::endl;
 	std::cout << "*=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=* *=*" << std::endl; 
 }
 
@@ -101,7 +101,7 @@ void ScavTrap::takeDamage(unsigned int amount)
 	std::string dam_take[2] = {"Yikes! Ohhoho!", "My robotic flesh! AAHH!"};
 	if (hit_points <= 0)
 	{
-		std::cout << "\nHey, I'm FR4G-TP whith a name <" + name + "> and I have already died. Stop bother me!" << std::endl;
+		std::cout << "\nHey, I'm ScavTrap whith a name <" + name + "> and I have already died. Stop bother me!" << std::endl;
 		return ;
 	}
 	std::cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << std::endl;
@@ -112,24 +112,19 @@ void ScavTrap::takeDamage(unsigned int amount)
 	{
 		amount = hit_points;
 		hit_points = 0;
-		std::cout << "FR4G-TP <" + name + "> takes <" << amount << "> of damage" << std::endl;
+		std::cout << "ScavTrap <" + name + "> takes <" << amount << "> of damage" << std::endl;
 		std::cout << mes_dead[rand() % 3] << std::endl;
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << std::endl;
 		return ;
 	}
 	hit_points -= amount;
-	std::cout << "FR4G-TP <" + name + "> takes <" << amount << "> of damage" << std::endl;
+	std::cout << "ScavTrap <" + name + "> takes <" << amount << "> of damage" << std::endl;
 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << std::endl;
 }
 
 void ScavTrap::beRepaired(unsigned int amount)
 {
 	std::cout << "\n+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +" << std::endl;
-	if (amount > (max_hit_p - hit_points))
-	{
-		amount = max_hit_p - hit_points;
-		hit_points = max_hit_p;
-	}
 	std::string second_life[2] = {"Holy crap, that worked?", "Back for more!"};
 	if (hit_points == 0)
 	{
@@ -137,6 +132,13 @@ void ScavTrap::beRepaired(unsigned int amount)
 	}
 	else
 		std::cout << "Healsies!" << std::endl;
-	std::cout << "FR4G-TP <" + name + "> has been repaired by <" << amount << "> of hit points" << std::endl;
+	if (amount > (max_hit_p - hit_points))
+	{
+		amount = max_hit_p - hit_points;
+		hit_points = max_hit_p;
+	}
+	else
+		hit_points += amount;
+	std::cout << "ScavTrap <" + name + "> has been repaired by <" << amount << "> of hit points" << std::endl;
 	std::cout << "+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +" << std::endl;
 }

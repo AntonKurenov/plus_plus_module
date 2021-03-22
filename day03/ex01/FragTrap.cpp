@@ -138,17 +138,19 @@ void FragTrap::beRepaired(unsigned int amount)
 	std::string second_wind[5] = {"Hahaha... I ascend!", "Ha ha ha! I LIVE! Hahaha!",\
 			"Wow, that actually worked?", "I'm back! Woo!", "Here we go again!"};
 	std::cout << "\n+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +" << std::endl;
-	if (amount > (max_hit_p - hit_points))
-	{
-		amount = max_hit_p - hit_points;
-		hit_points = max_hit_p;
-	}
 	if (hit_points == 0)
 	{
 		std::cout << second_wind[rand() % 5] << std::endl;
 	}
 	else
 		std::cout << "Sweet life juice!" << std::endl;
+	if (amount > (max_hit_p - hit_points))
+	{
+		amount = max_hit_p - hit_points;
+		hit_points = max_hit_p;
+	}
+	else
+		hit_points += amount;
 	std::cout << "FR4G-TP <" + name + "> has been repaired by <" << amount << "> of hit points" << std::endl;
 	std::cout << "+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +" << std::endl;
 }

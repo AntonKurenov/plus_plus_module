@@ -25,6 +25,7 @@ public:
 	void operator=(const ClapTrap&);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
+	std::string getName();
 };
 
 #endif // CLAPTRAP_HPP

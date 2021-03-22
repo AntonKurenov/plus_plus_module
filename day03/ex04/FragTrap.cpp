@@ -16,6 +16,19 @@ FragTrap::FragTrap(std::string const & t_name) : ClapTrap(t_name)//name(t_name)
 	std::cout << "<" + name + "> : " + born_mes[rand() % 5] << std::endl;
 };
 
+FragTrap::FragTrap()
+{
+	max_hit_p = 100;
+	max_energy = 100;
+	level = 1;
+	melee = 30;
+	ranged = 20;
+	armor = 5;
+	hit_points = max_hit_p;
+	energy_live = max_energy;
+	std::cout << "FragTRap has been created" << std::endl;
+}
+
 FragTrap::FragTrap(const FragTrap& t_old)
 {	
 	name = t_old.name;
