@@ -1,6 +1,6 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string const & t_name) : ClapTrap(t_name)//name(t_name)
+FragTrap::FragTrap(std::string const & t_name) : ClapTrap(t_name)
 {
 	max_hit_p = 100;
 	max_energy = 100;

@@ -12,6 +12,7 @@ int main(void)
 		one.takeDamage(40);
 		one.rangedAttack("Bandit");
 		one.takeDamage(50);
+		one.takeDamage(200);
 		one.beRepaired(10);
 		one.beRepaired(10000);
 		one.vaulthunter_dot_exe("Skag");

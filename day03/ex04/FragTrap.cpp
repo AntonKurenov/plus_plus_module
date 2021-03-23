@@ -1,11 +1,8 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string const & t_name) : ClapTrap(t_name)//name(t_name)
+FragTrap::FragTrap(std::string const & t_name) : ClapTrap(t_name)
 {
 	max_hit_p = 100;
-	max_energy = 100;
-	level = 1;
-	melee = 30;
 	ranged = 20;
 	armor = 5;
 	std::string born_mes[5] = {"Let's get this party started!", "Recompiling my combat code!",\
@@ -19,9 +16,6 @@ FragTrap::FragTrap(std::string const & t_name) : ClapTrap(t_name)//name(t_name)
 FragTrap::FragTrap()
 {
 	max_hit_p = 100;
-	max_energy = 100;
-	level = 1;
-	melee = 30;
 	ranged = 20;
 	armor = 5;
 	hit_points = max_hit_p;

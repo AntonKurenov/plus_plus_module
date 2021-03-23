@@ -5,6 +5,7 @@
 int main()
 {
 	srand(time(NULL));
+	std::cout << "====================================================" << std::endl;
 	{
 		FragTrap frag("Frag");
 		frag.meleeAttack("Bandit");
@@ -19,8 +20,8 @@ int main()
 	}
 
 	std::cout << "====================================================" << std::endl;
-	ScavTrap scav("Scav");
 	{
+		ScavTrap scav("Scav");
 		scav.meleeAttack("Bandit");
 		scav.rangedAttack("Skagg");
 		scav.takeDamage(20);
@@ -32,5 +33,6 @@ int main()
 		scav.challengeNewcomer();
 		scav.challengeNewcomer();
 	}
+	std::cout << "====================================================" << std::endl;
 	return (0);
 }

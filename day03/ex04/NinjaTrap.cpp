@@ -2,12 +2,9 @@
 
 NinjaTrap::NinjaTrap(std::string const & t_name)
 {
-	max_hit_p = 60;
 	max_energy = 120;
 	level = 1;
 	melee = 60;
-	ranged = 5;
-	armor = 0;
 	hit_points = max_hit_p;
 	energy_live = max_energy;
 	name = t_name;

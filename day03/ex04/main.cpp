@@ -7,20 +7,22 @@
 int main()
 {
 	srand(time(NULL));
+	std::cout << "====================================================" << std::endl;
 	{
-		NinjaTrap ninja("Ninja");
-		ninja.meleeAttack("Bandit");
-		ninja.rangedAttack("Skagg");
-		ninja.takeDamage(20);
-		ninja.takeDamage(100);
-		ninja.beRepaired(300);
+		SuperTrap super("Super");
+		super.meleeAttack("Bandit");
+		super.rangedAttack("Skagg");
+		super.takeDamage(20);
+		super.takeDamage(100);
+		super.beRepaired(300);
 		ClapTrap clap("clap");
-		ninja.ninjaShoebox(clap);
+		super.ninjaShoebox(clap);
 		FragTrap frag("Frag");
-		ninja.ninjaShoebox(frag);
+		super.ninjaShoebox(frag);
 		ScavTrap scav("Scav");
-		ninja.ninjaShoebox(scav);
-		ninja.ninjaShoebox(ninja);
+		super.ninjaShoebox(scav);
+		super.vaulthunter_dot_exe("Bandit");
+		super.vaulthunter_dot_exe("Bandit");
 	}
 	std::cout << "====================================================" << std::endl;
 	return (0);
