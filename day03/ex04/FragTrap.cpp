@@ -3,8 +3,11 @@
 FragTrap::FragTrap(std::string const & t_name) : ClapTrap(t_name)
 {
 	max_hit_p = 100;
+	max_energy = 100;
 	ranged = 20;
 	armor = 5;
+	melee = 30;
+	ranged = 20;
 	std::string born_mes[5] = {"Let's get this party started!", "Recompiling my combat code!",\
 			"This time it'll be awesome, I promise!", "Look out everybody! Things are about to get awesome!",
 			"I'm a robot ninja..."};

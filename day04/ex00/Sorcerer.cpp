@@ -16,3 +16,24 @@ void Sorcerer::introduce()
 {
 	std::cout << "I am " + m_name + ", " + m_title + ", and I like ponies!" << std::endl;
 }
+
+std::string Sorcerer::getName() const
+{
+	return (m_name);
+}
+
+std::string Sorcerer::getTitle() const
+{
+	return (m_title);
+}
+
+void Sorcerer::polymorph(Victim const & t_vict) const
+{
+	std::cout << "I like sheeps and ponies, and I will turn you into one of them." << std::endl;
+}
+
+std::ostream & operator << (std::ostream &output, const Sorcerer &t_inst)
+{
+	output << "I am " + t_inst.getName() + ", " + t_inst.getTitle() + ", and I like ponies!" << std::endl;
+	return (output);
+}

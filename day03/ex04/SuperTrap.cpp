@@ -2,14 +2,14 @@
 
 SuperTrap::SuperTrap(std::string const & t_name) : ClapTrap(t_name)
 {
-	max_hit_p = FragTrap::max_hit_p;
+	max_hit_p = 100;
 	hit_points = max_hit_p;
-	max_energy = NinjaTrap::max_energy;
+	max_energy = 120;
 	energy_live = max_energy;
 	level = 1;
-	melee = NinjaTrap::melee;
-	ranged = FragTrap::ranged;
-	armor = FragTrap::armor;
+	melee = 60;
+	ranged = 20;
+	armor = 5;
 	std::cout << "New SuperTrap has been created" << std::endl;
 }
 
