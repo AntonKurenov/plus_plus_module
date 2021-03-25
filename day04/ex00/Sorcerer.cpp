@@ -30,6 +30,7 @@ std::string Sorcerer::getTitle() const
 void Sorcerer::polymorph(Victim const & t_vict) const
 {
 	std::cout << "I like sheeps and ponies, and I will turn you into one of them." << std::endl;
+	t_vict.getPolymorphed();
 }
 
 std::ostream & operator << (std::ostream &output, const Sorcerer &t_inst)
