@@ -18,3 +18,8 @@ void PlasmaRifle::operator = (const PlasmaRifle & t_inst)
 	m_apcost = t_inst.m_apcost;
 	m_damage = t_inst.m_damage;
 }
+
+void PlasmaRifle::attack() const
+{
+	std::cout << "* piouuu piouuu piouuu *" << std::endl;
+}

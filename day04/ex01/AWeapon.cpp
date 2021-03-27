@@ -9,6 +9,11 @@ AWeapon::AWeapon(std::string const & t_name, int t_cost, int t_damage) :\
 {
 }
 
+AWeapon::AWeapon(const AWeapon & t_inst): m_name(t_inst.m_name),
+		m_apcost(t_inst.m_apcost), m_damage(t_inst.m_damage)
+{
+}
+
 AWeapon::~AWeapon()
 {
 }
