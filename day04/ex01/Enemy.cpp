@@ -16,10 +16,11 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::operator = (const Enemy & t_inst)
+Enemy& Enemy::operator = (const Enemy & t_inst)
 {
 	m_hp = t_inst.m_hp;
 	m_type = t_inst.m_type;
+	return *this;
 }
 
 std::string const & Enemy::getType() const

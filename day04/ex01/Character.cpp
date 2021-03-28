@@ -1,17 +1,18 @@
 #include "Character.hpp"
 
-Character::Character(): m_ap(40), m_name("Character"),
+Character::Character(): m_ap(40), m_name("Wild Warrior"),
 						m_max_ap(m_ap), m_weapon(NULL)
 {
 }
 
-Character::Character(std::string const & t_name): m_ap(40), m_name(t_name)
+Character::Character(std::string const & t_name): m_ap(40), m_name(t_name),
+	 m_max_ap(m_ap), m_weapon(NULL)
 {
 }
 
 Character::~Character()
 {
-	std::cout << "Character just died (" << std::endl;
+	std::cout << "Character " + m_name + " died (" << std::endl;
 }
 
 void Character::operator = (const Character & t_inst)
@@ -29,6 +30,11 @@ Character::Character(const Character & t_inst): m_ap(t_inst.m_ap),
 
 void Character::attack(Enemy *enemy)
 {
+	if (m_weapon == NULL)
+	{
+		std::cout << "Hey, there is my cool gun?" << std::endl;
+		return ;
+	}
 	if (m_ap >= m_weapon->getAPCost())
 	{
 		m_ap -= m_weapon->getAPCost();

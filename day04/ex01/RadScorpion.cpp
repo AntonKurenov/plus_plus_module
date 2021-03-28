@@ -19,5 +19,5 @@ void RadScorpion::operator = (const RadScorpion & t_inst)
 
 RadScorpion::RadScorpion(const RadScorpion & t_inst): Enemy(t_inst)
 {
-	std::cout << "Gaaah. Me want smash heads!" << std::endl;
+	std::cout << "* click click click *" << std::endl;
 }

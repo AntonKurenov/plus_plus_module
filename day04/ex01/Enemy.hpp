@@ -13,7 +13,7 @@ public:
 	Enemy(int hp, std::string const & type);
 	Enemy(const Enemy &);
 	virtual ~Enemy();
-	void operator = (const Enemy &);
+	Enemy & operator = (const Enemy &);
 	std::string const & getType() const;
 	int getHP() const;
 	virtual void takeDamage(int);

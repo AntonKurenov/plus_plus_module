@@ -15,7 +15,7 @@ int main()
 	Character* me = new Character("me");
 	std::cout << *me;
 	Enemy* b = new RadScorpion();
-	Enemy* r = new GiantRat();
+	Enemy* gr = new GiantRat();
 	AWeapon* pr = new PlasmaRifle();
 	AWeapon* pf = new PowerFist();
 	AWeapon* bb = new BigBoomer();
@@ -32,7 +32,16 @@ int main()
 	std::cout << *me;
 	me->equip(bb);
 	std::cout << *me;
-	me->attack(r);
+	me->attack(gr);
+	std::cout << *me;
+	me->attack(gr);
+	std::cout << *me;
+	me->recoverAP();
+	me->recoverAP();
+	me->recoverAP();
+	std::cout << *me;
+	Enemy* sup = new SuperMutant();
+	me->attack(sup);
 	std::cout << *me;
 	return 0;
 }
