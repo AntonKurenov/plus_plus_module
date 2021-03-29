@@ -1,17 +1,18 @@
 #ifndef ICE_HPP
 #define ICE_HPP
-#include <iostream>
 
-class Ice
+#include <iostream>
+#include "AMateria.hpp"
+
+class Ice : public AMateria
 {
 private:
-
-protected:
 public:
 	Ice();
 	virtual ~Ice();
-	Ice& operator=(Ice const& src);
 	Ice(Ice const& src);
+	virtual AMateria* clone() const;
+	virtual void use(ICharacter& target);
 };
 
 #endif // ICE_HPP

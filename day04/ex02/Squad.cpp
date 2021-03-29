@@ -6,10 +6,11 @@ Squad::Squad(): m_count(0), m_squad(NULL)
 
 Squad::~Squad()
 {
-	if (m_count)
+	for (int i = 0; i < m_count; i++)
 	{
-		delete [] (m_squad);
+		delete m_squad[i];
 	}
+	delete m_squad;
 }
 
 Squad::Squad(Squad const& src)
@@ -33,18 +34,24 @@ Squad& Squad::operator=(Squad const& src)
 	{
 		push(src.getUnit(i));
 	}
+	m_count = src.getCount();
 	return *this;
 }
 
 ISpaceMarine * Squad::getUnit(int t_num) const
 {
-	if (!m_squad)
+	if (m_count)
 	{
-		if (t_num >= 0 && t_num < m_count)
+		if (t_num == 0)
+		{
+			return m_squad[t_num];
+		}
+		if (t_num >= 0 && t_num <= m_count)
 		{
 			return m_squad[t_num];
 		}
 	}
+	std::cout << "There is no such unit in our squad" << std::endl;
 	return NULL;
 }
 
@@ -54,17 +61,17 @@ int Squad::push(ISpaceMarine * unit)
 	{
 		if (m_count)
 		{
-			std::cout << "hsldh" << std::endl;
 			ISpaceMarine **new_squad = new ISpaceMarine*[m_count + 1];
 			for (int i = 0; i < m_count; i++)
 			{
 				new_squad[i] = m_squad[i];
 			}
-			new_squad[m_count + 1] = unit;
+			new_squad[m_count] = unit;
 			m_count++;
 			delete(m_squad);
 			m_squad = new_squad;
 		}
+
 		else
 		{
 			m_squad = new ISpaceMarine*[1];

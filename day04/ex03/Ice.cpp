@@ -1,6 +1,6 @@
 #include "Ice.hpp"
 
-Ice::Ice()
+Ice::Ice(): AMateria("ice")
 {
 }
 
@@ -8,14 +8,18 @@ Ice::~Ice()
 {
 }
 
-Ice::Ice(Ice const& src)
+Ice::Ice(Ice const& src): AMateria(src)
 {
-	*this = src;
 }
 
-Ice& Ice::operator=(Ice const& src)
+AMateria* Ice::clone() const
 {
-	// TODO
-	static_cast<void>(src);
-	return *this;
+	Ice *clone = new Ice();
+	*clone = *this;
+	return clone;
+}
+
+void Ice::use(ICharacter& target)
+{
+
 }

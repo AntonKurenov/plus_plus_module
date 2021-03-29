@@ -10,8 +10,6 @@ private:
 public:
 	TacticalMarine();
 	virtual ~TacticalMarine();
-	TacticalMarine& operator=(TacticalMarine const& src);
-	TacticalMarine(TacticalMarine const& src);
 	virtual ISpaceMarine* clone() const;
 	virtual void battleCry() const;
 	virtual void rangedAttack() const;
