@@ -14,10 +14,11 @@ private:
 	static const unsigned int max_size = 4;
 
 public:
+	Character();
 	Character(std::string const &);
+	Character(Character const& src);
 	virtual ~Character();
 	Character& operator=(Character const& src);
-	Character(Character const& src);
 	virtual std::string const & getName() const;
 	virtual void equip(AMateria* m);
 	virtual void unequip(int idx);

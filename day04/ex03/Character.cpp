@@ -1,5 +1,9 @@
 #include "Character.hpp"
 
+Character::Character()
+{
+}
+
 Character::Character(std::string const & name): m_name(name), m_amount(0) 
 {
 	m_invent = new AMateria*[max_size];
@@ -20,6 +24,10 @@ Character::Character(Character const& src)
 
 Character& Character::operator=(Character const& src)
 {
+	if (this == &src)
+	{
+		return *this;
+	}
 	m_name = src.m_name;
 	m_amount = src.m_amount;
 	if (m_amount)
@@ -53,5 +61,13 @@ void Character::unequip(int idx)
 	if (idx >= 0 && idx <= 3 && m_invent[idx])
 	{
 		m_invent[idx] = NULL;
+	}
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+	if (idx >= 0 && idx < max_size && m_invent[idx])
+	{
+		m_invent[idx]->use(target);
 	}
 }
