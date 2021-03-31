@@ -5,6 +5,10 @@ Victim::Victim(std::string const & t_name) : m_name(t_name)
 	std::cout << "Some random victim called " + m_name + " just appeared!" << std::endl;
 }
 
+Victim::Victim()
+{
+}
+
 Victim::~Victim()
 {
 	std::cout << "Victim " + m_name + " just died for no apparent reason!" << std::endl;

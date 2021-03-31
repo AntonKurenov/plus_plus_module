@@ -14,6 +14,8 @@ Cure::Cure(Cure const& src): AMateria(src)
 
 Cure& Cure::operator=(Cure const& src)
 {
+	m_type = src.m_type;
+	m_xp = src.m_xp;
 	return *this;
 }
 

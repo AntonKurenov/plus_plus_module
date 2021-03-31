@@ -8,6 +8,7 @@
 class Peasant : public Victim
 {
 public:
+	Peasant();
 	Peasant(std::string const &);
 	Peasant(const Peasant&);
 	~Peasant();

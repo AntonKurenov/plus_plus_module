@@ -9,9 +9,9 @@ class Character : public ICharacter
 {
 private:
 	std::string m_name;
-	unsigned int m_amount;
+	int m_amount;
 	AMateria **m_invent;
-	static const unsigned int max_size = 4;
+	static const int max_size = 4;
 
 public:
 	Character();

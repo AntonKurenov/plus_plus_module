@@ -1,5 +1,9 @@
 #include "Peasant.hpp"
 
+Peasant::Peasant()
+{
+}
+
 Peasant::Peasant(std::string const & t_name) : Victim(t_name)
 {
 	std::cout << "Ready to serve, my lord." << std::endl;

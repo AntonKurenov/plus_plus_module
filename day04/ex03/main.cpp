@@ -11,8 +11,7 @@ void next_test()
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	Character* me = new Character("me");
-	Character* you = new Character("you");
-	Character qwert("qwewt");
+	Character* jack = new Character("jack");
 	AMateria* tmp;
 	AMateria* tmp2;
 	tmp = src->createMateria("ice");
@@ -29,14 +28,21 @@ void next_test()
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	me->use(0, *you);
-	me->use(1, *you);
-	me->use(2, *you);
-	me->use(3, *you);
+	me->use(0, *jack);
+	me->use(1, *jack);
+	me->use(2, *jack);
+	me->use(3, *jack);
 	ICharacter* last = new Character(*me);
-	std::cout << last->getName() << std::endl;
+	std::cout << "Test copy constructor : " + last->getName() << std::endl;
+	last->use(0, *jack);
+	last->use(1, *jack);
+	last->use(2, *jack);
+	last->use(3, *jack);
 	delete me;
 	delete src;
+	delete last;
+	delete jack;
+	delete tmp;
 }
 
 int main()
@@ -53,7 +59,7 @@ int main()
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
-	next_test();
+	// next_test();
 	delete bob;
 	delete me;
 	delete src;

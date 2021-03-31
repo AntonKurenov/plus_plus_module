@@ -10,6 +10,7 @@ class Sorcerer
 private:
 	std::string m_name;
 	std::string m_title;
+	Sorcerer();
 
 public:
 	Sorcerer(std::string const &, std::string const &);

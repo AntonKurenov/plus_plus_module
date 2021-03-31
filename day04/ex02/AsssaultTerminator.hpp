@@ -11,9 +11,10 @@ public:
 	AssaultTerminator();
 	virtual ~AssaultTerminator();
 	virtual ISpaceMarine* clone() const;
+	AssaultTerminator& operator=(AssaultTerminator const & src);
 	virtual void battleCry() const;
 	virtual void rangedAttack() const;
 	virtual void meleeAttack() const;
 };
 
-#endif // !ASSSAULTTERMINATOR_HPP
+#endif // ASSSAULTTERMINATOR_HPP

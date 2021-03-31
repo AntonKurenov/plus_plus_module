@@ -8,6 +8,7 @@ class Enemy
 protected:
 	int m_hp;
 	std::string m_type;
+
 public:
 	Enemy();
 	Enemy(int hp, std::string const & type);

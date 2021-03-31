@@ -18,13 +18,12 @@ AMateria::AMateria(AMateria const& src): m_type(src.m_type), m_xp(src.m_xp)
 
 AMateria& AMateria::operator=(AMateria const& src)
 {
-	std::cout << "operator = amateria" << std::endl;
 	m_type = src.m_type;
 	m_xp = src.m_xp;
 	return *this;
 }
 
-void AMateria::use(ICharacter& target)
+void AMateria::use(ICharacter&)
 {
 	m_xp += 10;
 }

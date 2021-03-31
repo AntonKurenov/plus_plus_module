@@ -12,9 +12,15 @@ Ice::Ice(Ice const& src): AMateria(src)
 {
 }
 
+Ice& Ice::operator=(Ice const& src)
+{
+	m_type = src.m_type;
+	m_xp = src.m_xp;
+	return *this;
+}
+
 AMateria* Ice::clone() const
 {
-	std::cout << "inside clone Ice" << std::endl;
 	Ice *clone = new Ice();
 	*clone = *this;
 	return clone;

@@ -9,9 +9,10 @@ protected:
 	std::string m_name;
 
 public:
+	Victim();
 	Victim(std::string const &);
 	Victim(const Victim&);
-	~Victim();
+	virtual ~Victim();
 	void operator=(const Victim&);
 	void introduce();
 	std::string getName() const;

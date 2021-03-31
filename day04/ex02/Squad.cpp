@@ -6,16 +6,20 @@ Squad::Squad(): m_count(0), m_squad(NULL)
 
 Squad::~Squad()
 {
-	for (int i = 0; i < m_count; i++)
+    if (m_squad)
 	{
-		delete m_squad[i];
+        for (int i = 0; i < m_count; i++)
+        {
+            if (m_squad[i])
+                delete m_squad[i];
+        }
+        delete m_squad;
 	}
-	delete m_squad;
 }
 
 Squad::Squad(Squad const& src)
 {
-	m_count = 0;
+	m_count = src.getCount();
 	*this = src;
 }
 
@@ -29,12 +33,10 @@ Squad& Squad::operator=(Squad const& src)
 		}
 		delete m_squad;
 	}
-	m_count = 0;
 	for (int i = 0; i < src.getCount(); i++)
 	{
-		push(src.getUnit(i));
+		push(src.getUnit(i)->clone());
 	}
-	m_count = src.getCount();
 	return *this;
 }
 

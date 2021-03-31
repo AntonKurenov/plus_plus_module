@@ -10,6 +10,7 @@ class Peon : public Victim
 public:
 	Peon(std::string const &);
 	Peon(const Peon&);
+	Peon();
 	~Peon();
 	void operator=(const Peon&);
 	void introduce();
