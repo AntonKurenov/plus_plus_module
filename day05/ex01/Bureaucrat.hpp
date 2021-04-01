@@ -12,7 +12,7 @@ private:
 public:
 	Bureaucrat();
 	Bureaucrat(std::string const &, int);
-	~Bureaucrat();
+	virtual ~Bureaucrat();
 	Bureaucrat& operator=(Bureaucrat const& src);
 	Bureaucrat(Bureaucrat const& src);
 	class GradeTooHighException: public std::exception
