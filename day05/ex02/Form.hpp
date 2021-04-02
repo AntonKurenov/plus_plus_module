@@ -1,6 +1,7 @@
 #ifndef FORM_HPP
-#define FORM_HPP
+# define FORM_HPP
 
+#include <ctime>
 #include <iostream>
 class Bureaucrat;
 #include "Bureaucrat.hpp"
@@ -11,11 +12,13 @@ private:
 	int const m_sign;
 	int const m_exec;
 	std::string const m_name;
+	std::string const m_target;
 	bool m_is_signed;
 	Form();
 
 public:
-	Form(std::string const &, int const sign, int const exec);
+	Form(std::string const &, int const sign, int const exec,\
+		 std::string const &target);
 	virtual ~Form();
 	Form& operator=(Form const& src);
 	Form(Form const& src);
@@ -34,11 +37,18 @@ public:
 	public:
 		const char* what() const throw();
 	};
+	class FormNotSigned: public std::exception
+	{
+	public:
+		const char* what() const throw();
+	};
 	std::string getName() const;
 	bool getStatus() const;
 	int getExecGrade() const;
 	int getSignGrade() const;
+	std::string getTarget() const;
 	void beSigned(Bureaucrat const &);
+	virtual void execute(Bureaucrat const &) const;
 };
 
 std::ostream & operator << (std::ostream &output, const Form &t_inst);

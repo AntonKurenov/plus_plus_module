@@ -1,7 +1,8 @@
 #include "Form.hpp"
 
-Form::Form(std::string const &name, int const sign, int const exec): m_sign(sign), m_exec(exec),
-		m_name(name), m_is_signed(false)
+Form::Form(std::string const &name, int const sign, int const exec,\
+		std::string const & target): m_sign(sign), m_exec(exec), m_name(name),\
+		m_target(target), m_is_signed(false)
 {
 	if (m_sign > 150 || m_exec > 150)
 	{
@@ -43,6 +44,16 @@ const char* Form::FormAlreadySigned::what() const throw()
 	return "Form: error: FormAlreadySigned exception";
 }
 
+const char* Form::FormNotSigned::what() const throw()
+{
+	return "Form: error: FormNotSigned exception";
+}
+
+std::string Form::getTarget() const
+{
+	return m_target;
+}
+
 std::string Form::getName() const
 {
 	return m_name;
@@ -74,6 +85,18 @@ void Form::beSigned(Bureaucrat const &bur)
 		throw Form::GradeTooLowException();
 	}
 	m_is_signed = true;
+}
+
+void Form::execute(Bureaucrat const & bur) const
+{
+	if (!m_is_signed)
+	{
+		throw Form::FormNotSigned();
+	}
+	if (bur.getGrade() > m_exec)
+	{
+		throw Form::GradeTooLowException();
+	}
 }
 
 std::ostream & operator << (std::ostream &output, const Form &t_inst)

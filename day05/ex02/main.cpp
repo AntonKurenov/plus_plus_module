@@ -3,6 +3,7 @@
 
 int main()
 {
+	srand(time(NULL));
 	Bureaucrat dan("Dan", 50);
 	Bureaucrat jack("Jack", 149);
 	Bureaucrat bob("Bob", 2);
