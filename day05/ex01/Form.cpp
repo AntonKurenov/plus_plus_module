@@ -17,8 +17,8 @@ Form::~Form()
 {
 }
 
-Form::Form(Form const& src): m_is_signed(src.m_is_signed), m_sign(src.m_sign), 
-	m_exec(src.m_exec),m_name(src.m_name)
+Form::Form(Form const& src): m_sign(src.m_sign), m_exec(src.m_exec),
+		m_name(src.m_name), m_is_signed(src.m_is_signed) 
 {
 }
 

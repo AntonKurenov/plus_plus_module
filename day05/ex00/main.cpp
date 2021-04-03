@@ -9,6 +9,17 @@ int main()
 
 	try
 	{
+		Bureaucrat cool("Cabron", 0);
+	}
+	catch (std::exception const & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "====================================================" << std::endl;
+
+	try
+	{
+		std::cout << dan;
 		dan.increment();
 		std::cout << dan;
 		dan.decrement();
@@ -22,6 +33,7 @@ int main()
 
 	try
 	{
+		std::cout << jack;
 		jack.decrement();
 		std::cout << jack;
 		jack.decrement();
@@ -35,6 +47,7 @@ int main()
 	std::cout << "====================================================" << std::endl;
 	try
 	{
+		std::cout << bob;
 		bob.increment();
 		std::cout << bob;
 		bob.increment();
