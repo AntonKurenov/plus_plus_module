@@ -1,6 +1,6 @@
 COMP_FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = deserializer
-SRCS = deserialize.cpp
+NAME = identifier
+SRCS = identifier.cpp
 OBJS_DIR = objs/
 
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))

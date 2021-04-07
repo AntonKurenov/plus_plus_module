@@ -1,80 +1,75 @@
-#include <iostream>
-#include <cstdlib>
-#include <string>
-#include <stdlib.h>
-#include <cmath>
+#include "convert.hpp"
 
-void convertToInt(std::string const &);
-void convertToChar(std::string const &);
-void convertToFloat(std::string const &);
-void convertToDouble(std::string const &);
+void convertToInt(Data);
+void convertToChar(Data);
+void convertToFloat(Data);
+void convertToDouble(Data);
 
-void convertToInt(std::string const & str)
+void convertToInt(Data data)
 {
 	int m_int;
-	try
-	{
-		m_int = std::stoi(str);
-	}
-	catch(const std::exception &e)
-	{
-		std::cout << "int: impossible" << std::endl;
-		return ;
-	}
-	std::cout << "int: " << m_int << std::endl;
-}
-
-void convertToDouble(std::string const & str)
-{
-	double m_double;	
-	try
-	{
-		m_double = std::stod(str);
-	}
-	catch(const std::exception &e)
-	{
-		std::cout << "double: impossible" << std::endl;
-		return ;
-	}
-	std::cout << "double: " << m_double << std::endl;
-}
-
-void convertToFloat(std::string const & str)
-{
-	double m_float;
-	std::cout << "float: ";
-	try
-	{
-		m_float = std::stod(str);
-	}
-	catch(const std::exception &e)
+	m_int = static_cast<int>(data.init_val);
+	std::cout << "int: ";
+	if (data.bad_double == 1)
 	{
 		std::cout << "impossible" << std::endl;
 		return ;
 	}
-	if (isnan(m_float) || isinf(m_float))
+	if (data.init_val <= std::numeric_limits<int>::max() && data.init_val >=\
+		std::numeric_limits<int>::min())
 	{
-		std::cout << static_cast<float>(m_float) << "f" << std::endl;
+		std::cout << m_int << std::endl;
 		return ;
 	}
-	if (m_float - static_cast<long>(m_float) == 0)
+	std::cout << "impossible" << std::endl;
+}
+
+void convertToDouble(Data data)
+{
+	std::cout << "double: ";
+	if (data.bad_double == 1)
 	{
-		std::cout << static_cast<float>(m_float) << ".0f" << std::endl;
+		std::cout << "impossible" << std::endl;
+		return ;
 	}
 	else
 	{
-		std::cout << static_cast<float>(m_float) << "f" << std::endl;
+		std::cout << data.init_val << std::endl;
 	}
 }
 
-void convertToChar(std::string const & str)
+void convertToFloat(Data data)
+{
+	float m_float;
+	double val = data.init_val;
+	m_float = static_cast<float>(data.init_val);
+	std::cout << "float: ";
+	if (data.bad_double == 1 || val >= std::numeric_limits<float>::max() ||\
+		val <= std::numeric_limits<float>::min())
+	{
+		std::cout << "impossible" << std::endl;
+		return ;
+	}
+	if (isnan(data.init_val) || isinf(data.init_val))
+	{
+		std::cout << static_cast<float>(data.init_val) << "f" << std::endl;
+		return ;
+	}
+	if (data.init_val - static_cast<long>(data.init_val) == 0)
+	{
+		std::cout << static_cast<float>(data.init_val) << ".0f" << std::endl;
+	}
+	else
+	{
+		std::cout << static_cast<float>(data.init_val) << "f" << std::endl;
+	}
+}
+
+void convertToChar(Data data)
 {
 	int m_char;
-	try
-	{
-		m_char = std::stoi(str);
-	}
-	catch(const std::exception &e)
+	m_char = static_cast<int>(data.init_val);
+	if (data.bad_double == 1 || isnan(data.init_val) || isinf(data.init_val))
 	{
 		std::cout << "char: impossible" << std::endl;
 		return ;
@@ -86,7 +81,7 @@ void convertToChar(std::string const & str)
 	}
 	if (isprint(m_char))
 	{
-		std::cout << "char: " << static_cast<char>(m_char) << std::endl;
+		std::cout << "char: '" << static_cast<char>(m_char) << "'" << std::endl;
 		return ;
 	}
 	else
@@ -102,10 +97,19 @@ int main(int argc, char **argv)
 		std::cerr << "Error: wrong number of arguments" << std::endl;
 		return 1;
 	}
-	std::string arg = argv[1];
-	convertToChar(arg);
-	convertToInt(arg);
-	convertToFloat(arg);
-	convertToDouble(arg);
+	Data data = {.bad_double = 0, .init_val = 0};
+	std::string str = argv[1];
+	try
+	{
+		data.init_val = std::stod(str);
+	}
+	catch(const std::exception &e)
+	{
+		data.bad_double = 1;	
+	}
+	convertToChar(data);
+	convertToInt(data);
+	convertToFloat(data);
+	convertToDouble(data);
 	return 0;
 }

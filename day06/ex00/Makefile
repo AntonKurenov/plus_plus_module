@@ -14,7 +14,7 @@ $(NAME): $(OBJS)
 	clang++ $(COMP_FLAGS) -o $@ $^
 
 $(OBJS): $(OBJS_DIR)%.o: %.cpp
-	clang++ -c $< -o $@
+	clang++ $(COMP_FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS_DIR)

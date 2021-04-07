@@ -39,18 +39,20 @@ Data *deserialize(void *raw)
 	data->str1 = std::string(reinterpret_cast<char*>(raw), 8);
 	data->num = *(reinterpret_cast<int*>(static_cast<char*>(raw) + 8));
 	data->str2 = std::string(reinterpret_cast<char*>(raw) + 12, 8);
-
 	return data;
 }
 
 int main(void)
 {
+	std::cout << "====================================================" << std::endl;
 	Data *data = deserialize(serialize());
 
 	std::cout << data->str1 << std::endl;
 	std::cout << data->num << std::endl;
 	std::cout << data->str2 << std::endl;
 
+	std::cout << "====================================================" << std::endl;
+	std::cout << "size = " << sizeof(*data) << std::endl;
 	delete data;
 	return 0;
 }
