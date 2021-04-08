@@ -20,5 +20,7 @@ int main(void)
 
 	std::cout << max<int>(a, b) << std::endl;
 	std::cout << max<char>(c1, c2) << std::endl;
+	int * x = new int();
+	std::cout << x << std::endl;
 	return 0;
 }
