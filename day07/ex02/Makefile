@@ -1,5 +1,5 @@
 COMP_FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = iter
+NAME = array
 SRCS = main.cpp
 OBJS_DIR = objs/
 
