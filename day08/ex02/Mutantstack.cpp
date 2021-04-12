@@ -1,19 +1,10 @@
 #include "Mutantstack.hpp"
 
-Mutantstack::Mutantstack()
+template <typename T>
+MutantStack<T> & MutantStack<T>::operator=(const MutantStack &src)
 {
-}
-
-Mutantstack::~Mutantstack()
-{
-}
-
-Mutantstack::Mutantstack(Mutantstack const& src)
-{
-	*this = src;
-}
-
-Mutantstack& Mutantstack::operator=(Mutantstack const& src)
-{
+	if (this == &src)
+		return *this;
+	this->c = src.c;
 	return *this;
 }

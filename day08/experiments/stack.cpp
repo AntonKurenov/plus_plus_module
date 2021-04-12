@@ -14,6 +14,11 @@ int main()
 	std::cout << st.top() << std::endl;
 	st.pop();
 	std::cout << st.top() << std::endl;
+	
+	std::cout << "size = ";
+	std::cout << st.size() << std::endl;
+	std::stack<int>::container_type::iterator it;
+	// it = (st.pop() + st.size());
 
 	return 0;
 }
